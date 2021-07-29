@@ -1,0 +1,12 @@
+<p>Hiv Monthly report</p>
+<select
+  class="browser-default custom-select"
+  id="getmonth"
+  [(ngModel)]="selectedMonth"
+>
+  <option [ngValue]="null">Select Month</option>
+  <option selected *ngFor="let item of months" [ngValue]="item.Month">
+    {{ item.Month }}
+  </option>
+</select>
+{{ selectedMonth }}
