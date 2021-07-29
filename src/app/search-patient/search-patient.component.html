@@ -17,20 +17,20 @@
       <tr>
         <th>Name</th>
         <th>Gender</th>
-        <th>Date of Birth</th>
         <th>Age</th>
-        <th>Phone Number</th>
-        <th>HIV Status</th>
       </tr>
     </thead>
     <tbody>
       <tr mdbTableCol *ngFor="let patient of patients">
-        <th scope="row">{{ patient.name }}</th>
+        <th scope="row">
+          <a
+            [routerLink]="['/details']"
+            [queryParams]="{ name: patient.name }"
+            >{{ patient.name }}</a
+          >
+        </th>
         <td>{{ patient.gender }}</td>
-        <td>{{ patient.Birth_Date }}</td>
-        <td>{{ patient.gae }}</td>
-        <td>{{ patient.phone_number }}</td>
-        <td>{{ patient.hiv_status }}</td>
+        <td>{{ patient.age }}</td>
       </tr>
     </tbody>
   </table>

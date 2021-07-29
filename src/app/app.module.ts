@@ -9,6 +9,7 @@ import { SearchPatientComponent } from './search-patient/search-patient.componen
 import { ReportsComponent } from './reports/reports.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FormsModule } from '@angular/forms';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     SearchPatientComponent,
     ReportsComponent,
     NavigationComponent,
+    PatientDetailsComponent,
   ],
   imports: [
     BrowserModule,

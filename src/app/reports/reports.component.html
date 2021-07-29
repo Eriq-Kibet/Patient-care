@@ -1,12 +1,32 @@
 <p>Hiv Monthly report</p>
-<select
-  class="browser-default custom-select"
-  id="getmonth"
+<input
   [(ngModel)]="selectedMonth"
->
-  <option [ngValue]="null">Select Month</option>
-  <option selected *ngFor="let item of months" [ngValue]="item.Month">
-    {{ item.Month }}
-  </option>
-</select>
+  (ngModelChange)="onChange($event)"
+  type="month"
+  id="start"
+  name="start"
+  min="2000-03"
+  value="2018-05"
+/>
 {{ selectedMonth }}
+
+<table mdbTable>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Location</th>
+      <th>Positive</th>
+      <th>Negative</th>
+      <th>Unknown</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let month of monthSet">
+      <th scope="row">{{ month.Month }}</th>
+      <td>{{ month.Location }}</td>
+      <td>{{ month.Positive }}</td>
+      <td>{{ month.Negative }}</td>
+      <td>{{ month.Unknown_Status }}</td>
+    </tr>
+  </tbody>
+</table>

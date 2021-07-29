@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientSearchService } from './../services/search-patient.service';
-
+import { PatientDetailsService } from '../services/patient-details.service';
+import { PatientSearchService } from '../services/search-patient.service'
 @Component({
   selector: 'app-search-patient',
   templateUrl: './search-patient.component.html',
@@ -15,18 +15,17 @@ export class SearchPatientComponent implements OnInit {
 
   ngOnInit(): void {
 
+
   }
 
   public getPatient() {
     if (this.searchValue.trim().length > 2)
-      this.patientSearchService.sendSearchPatients(this.searchValue).subscribe((response) => {
-        console.log(response);
-        this.patients = response;
+      this.patientSearchService.sendSearchPatient(this.searchValue).subscribe((results) => {
+        console.log(results);
+        this.patients = results;
 
       },
-        (error) => {
-          console.log(error);
-        }
+
       )
   }
 }

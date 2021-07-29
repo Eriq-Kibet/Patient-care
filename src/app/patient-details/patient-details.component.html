@@ -1,0 +1,24 @@
+<h3>{{ patientInfo }} Details</h3>
+
+<table mdbTable>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Date of Birth</th>
+      <th>Age</th>
+      <th>Phone Number</th>
+      <th>HIV Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let patient of patientDetails">
+      <th scope="row">{{ patient.name }}</th>
+      <td>{{ patient.gender }}</td>
+      <td>{{ patient.Birth_Date }}</td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.phone_number }}</td>
+      <td>{{ patient.hiv_status }}</td>
+    </tr>
+  </tbody>
+</table>
