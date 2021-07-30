@@ -5,8 +5,8 @@ import { HivMonthlyReportService } from '../services/hiv-monthly-report.service'
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.scss']
 })
+
 export class ReportsComponent implements OnInit {
-  months: any;
   monthSet: any;
   selectedMonth: any;
   constructor(private hivMonthlyReportService: HivMonthlyReportService) { }

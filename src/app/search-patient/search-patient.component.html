@@ -1,37 +1,45 @@
-<!-- Search form -->
-<form class="waves-light" mdbWavesEffect>
-  <div class="md-form mt-5">
-    <input
-      name="search-name"
-      class="form-control mr-sm-2"
-      type="text"
-      placeholder="Enter Patients name"
-      [(ngModel)]="searchValue"
-      (keyup)="getPatient()"
-    />
-    <p>{{ numberOfPatients }}</p>
-  </div>
+<div class="search-container">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <!-- Search form -->
+      <form class="waves-light" mdbWavesEffect>
+        <div class="md-form mt-5">
+          <input
+            name="search-name"
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Enter Patients name"
+            [(ngModel)]="searchValue"
+            (keyup)="getPatient()"
+          />
+          <p>{{ numberOfPatients }}</p>
+        </div>
 
-  <table mdbTable>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Age</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr mdbTableCol *ngFor="let patient of patients">
-        <th scope="row">
-          <a
-            [routerLink]="['/details']"
-            [queryParams]="{ name: patient.name }"
-            >{{ patient.name }}</a
-          >
-        </th>
-        <td>{{ patient.gender }}</td>
-        <td>{{ patient.age }}</td>
-      </tr>
-    </tbody>
-  </table>
-</form>
+        <table mdbTable class="search-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr mdbTableCol *ngFor="let patient of patients">
+              <th scope="row">
+                <a
+                  [routerLink]="['/details']"
+                  [queryParams]="{ name: patient.name }"
+                  >{{ patient.name }}</a
+                >
+              </th>
+              <td>{{ patient.gender }}</td>
+              <td>{{ patient.age }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>

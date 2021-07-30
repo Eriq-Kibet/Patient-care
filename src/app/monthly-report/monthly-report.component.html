@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <h3>Monthly Report</h3>
+      <table mdbTable class="monthlyTable">
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Encounter Date</th>
+            <th>Location</th>
+            <th>HIV Status</th>
+            <th>Gender</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody ng-if="details?.length !== 0">
+          <tr mdbTableCol *ngFor="let details of reportResult">
+            <th scope="row">{{ details.Patient_name }}</th>
+            <td>{{ details.Encounter_Date }}</td>
+            <td>{{ details.Location }}</td>
+            <td>{{ details.hiv_status }}</td>
+            <td>{{ details.gender }}</td>
+            <td>{{ details.age }}</td>
+          </tr>
+        </tbody>
+        <!-- <tbody ng-if="details?.length === 0">
+          <tr>
+            <td colspan="6" id="col">No data</td>
+          </tr>
+        </tbody> -->
+      </table>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>

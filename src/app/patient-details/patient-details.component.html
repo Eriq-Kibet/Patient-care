@@ -1,24 +1,32 @@
-<h3>{{ patientInfo }} Details</h3>
+<div class="page-container">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <h3>{{ patientInfo }} Information</h3>
 
-<table mdbTable>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Date of Birth</th>
-      <th>Age</th>
-      <th>Phone Number</th>
-      <th>HIV Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr mdbTableCol *ngFor="let patient of patientDetails">
-      <th scope="row">{{ patient.name }}</th>
-      <td>{{ patient.gender }}</td>
-      <td>{{ patient.Birth_Date }}</td>
-      <td>{{ patient.age }}</td>
-      <td>{{ patient.phone_number }}</td>
-      <td>{{ patient.hiv_status }}</td>
-    </tr>
-  </tbody>
-</table>
+      <table mdbTable class="patient-details">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Age</th>
+            <th>Phone Number</th>
+            <th>HIV Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let patient of patientDetails">
+            <th scope="row">{{ patient.name }}</th>
+            <td>{{ patient.gender }}</td>
+            <td>{{ patient.Birth_Date }}</td>
+            <td>{{ patient.age }}</td>
+            <td>{{ patient.phone_number }}</td>
+            <td>{{ patient.hiv_status }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>

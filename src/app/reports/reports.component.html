@@ -1,32 +1,58 @@
-<p>Hiv Monthly report</p>
-<input
-  [(ngModel)]="selectedMonth"
-  (ngModelChange)="onChange($event)"
-  type="month"
-  id="start"
-  name="start"
-  min="2000-03"
-  value="2018-05"
-/>
-{{ selectedMonth }}
+<div class="report-container">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <p>Hiv Monthly report</p>
+      <input class="calendar"
+        [(ngModel)]="selectedMonth"
+        (ngModelChange)="onChange($event)"
+        type="month"
+        id="start"
+        name="start"
+        min="2000-03"
+        value="2018-05"
+      />
+      {{ selectedMonth }}
 
-<table mdbTable>
-  <thead>
-    <tr>
-      <th>Month</th>
-      <th>Location</th>
-      <th>Positive</th>
-      <th>Negative</th>
-      <th>Unknown</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr mdbTableCol *ngFor="let month of monthSet">
-      <th scope="row">{{ month.Month }}</th>
-      <td>{{ month.Location }}</td>
-      <td>{{ month.Positive }}</td>
-      <td>{{ month.Negative }}</td>
-      <td>{{ month.Unknown_Status }}</td>
-    </tr>
-  </tbody>
-</table>
+      <table mdbTable class="reports-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Location</th>
+            <th>Positive</th>
+            <th>Negative</th>
+            <th>Unknown</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let month of monthSet">
+            <th scope="row">{{ month.Month }}</th>
+            <td>{{ month.Location }}</td>
+            <td>
+              <a
+                [queryParams]="{ name: 'Positive', month: month.Month }"
+                [routerLink]="['/monthly-report']"
+                >{{ month.Positive }}</a
+              >
+            </td>
+            <td>
+              <a
+                [queryParams]="{ name: 'Negative', month: month.Month }"
+                [routerLink]="['/monthly-report']"
+                >{{ month.Negative }}</a
+              >
+            </td>
+            <td>
+              <a
+                [queryParams]="{ name: 'Unknown', month: month.Month }"
+                [routerLink]="['/monthly-report']"
+                >{{ month.Unknown_Status }}</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>

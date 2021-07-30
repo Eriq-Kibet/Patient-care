@@ -13,7 +13,7 @@ export class PatientDetailsComponent implements OnInit {
   constructor(private patientDetailsService: PatientDetailsService, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
-      let name = params['name'];
+      const name = params['name'];
       console.log(name);
       this.patientInfo = name;
     })
@@ -23,7 +23,6 @@ export class PatientDetailsComponent implements OnInit {
     this.patientDetailsService.sendPatientDetails(this.patientInfo).subscribe((results) => {
       console.log(results);
       this.patientDetails = results;
-
     },
 
     )

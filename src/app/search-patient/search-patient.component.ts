@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientDetailsService } from '../services/patient-details.service';
 import { PatientSearchService } from '../services/search-patient.service'
+import { debounce } from 'lodash';
 @Component({
   selector: 'app-search-patient',
   templateUrl: './search-patient.component.html',
@@ -11,22 +11,22 @@ export class SearchPatientComponent implements OnInit {
   patients: any;
   numberOfPatients: number = this.searchValue.length;
 
-  constructor(private patientSearchService: PatientSearchService) { }
+  constructor(private patientSearchService: PatientSearchService) { this.getPatient = debounce(this.getPatient, 3000) }
 
   ngOnInit(): void {
 
-
   }
-
+  
   public getPatient() {
+
     if (this.searchValue.trim().length > 2)
-      this.patientSearchService.sendSearchPatient(this.searchValue).subscribe((results) => {
-        console.log(results);
-        this.patients = results;
+    this.patientSearchService.sendSearchPatient(this.searchValue).subscribe((results) => {
+      console.log(results);
+      this.patients = results;
 
-      },
+    },
 
-      )
+    )
   }
 }
 

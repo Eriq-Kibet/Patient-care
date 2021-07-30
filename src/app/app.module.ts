@@ -10,6 +10,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FormsModule } from '@angular/forms';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { MonthlyReportComponent } from './monthly-report/monthly-report.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
     ReportsComponent,
     NavigationComponent,
     PatientDetailsComponent,
+    MonthlyReportComponent,
   ],
   imports: [
     BrowserModule,
